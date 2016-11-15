@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="HotelDatabaseModelStoreContainer" CdmEntityContainer="HotelDatabaseEntities">
+    <EntitySetMapping Name="Bookings">
+      <EntityTypeMapping TypeName="HotelDatabaseModel.Booking">
+        <MappingFragment StoreEntitySet="Bookings">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Room_IDFK" ColumnName="Room_IDFK" />
+          <ScalarProperty Name="Guest_IDFK" ColumnName="Guest_IDFK" />
+          <ScalarProperty Name="Charges_IDFK" ColumnName="Charges_IDFK" />
+          <ScalarProperty Name="Booking_From" ColumnName="Booking_From" />
+          <ScalarProperty Name="Booking_To" ColumnName="Booking_To" />
+          <ScalarProperty Name="Checked_In" ColumnName="Checked_In" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Charges">
+      <EntityTypeMapping TypeName="HotelDatabaseModel.Charge">
+        <MappingFragment StoreEntitySet="Charges">
+          <ScalarProperty Name="Total" ColumnName="Total" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Bar_Charge" ColumnName="Bar_Charge" />
+          <ScalarProperty Name="Internet_Charge" ColumnName="Internet_Charge" />
+          <ScalarProperty Name="Phone_Charge" ColumnName="Phone_Charge" />
+          <ScalarProperty Name="Room_Charge" ColumnName="Room_Charge" />
+          <ScalarProperty Name="Additional_Charges" ColumnName="Additional_Charges" />
+          <ScalarProperty Name="Additional_Charges_Info" ColumnName="Additional_Charges_Info" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Guest_Info">
+      <EntityTypeMapping TypeName="HotelDatabaseModel.Guest_Info">
+        <MappingFragment StoreEntitySet="Guest_Info">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+          <ScalarProperty Name="Home_Phone" ColumnName="Home Phone" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Rooms">
+      <EntityTypeMapping TypeName="HotelDatabaseModel.Room">
+        <MappingFragment StoreEntitySet="Rooms">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Room_Name" ColumnName="Room_Name" />
+          <ScalarProperty Name="Single_Beds" ColumnName="Single_Beds" />
+          <ScalarProperty Name="Double_Beds" ColumnName="Double_Beds" />
+          <ScalarProperty Name="Extra_Info" ColumnName="Extra Info" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Room_Prices">
+      <EntityTypeMapping TypeName="HotelDatabaseModel.Room_Prices">
+        <MappingFragment StoreEntitySet="Room_Prices">
+          <ScalarProperty Name="Key" ColumnName="Key" />
+          <ScalarProperty Name="Single_Price" ColumnName="Single_Price" />
+          <ScalarProperty Name="Double_Price" ColumnName="Double_Price" />
+          <ScalarProperty Name="Extra_Single_Price" ColumnName="Extra_Single_Price" />
+          <ScalarProperty Name="Extra_Double_Price" ColumnName="Extra_Double_Price" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Complete_Bookings">
+      <EntityTypeMapping TypeName="HotelDatabaseModel.Complete_Booking">
+        <MappingFragment StoreEntitySet="Complete Booking">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Guest_ID" ColumnName="Guest ID" />
+          <ScalarProperty Name="Room_Name" ColumnName="Room Name" />
+          <ScalarProperty Name="From" ColumnName="From" />
+          <ScalarProperty Name="To" ColumnName="To" />
+          <ScalarProperty Name="Checked_In__" ColumnName="Checked In ?" />
+          <ScalarProperty Name="Receipt_ID" ColumnName="Receipt ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

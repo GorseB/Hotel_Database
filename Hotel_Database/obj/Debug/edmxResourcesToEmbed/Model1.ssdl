@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HotelDatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Bookings">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Room_IDFK" Type="int" Nullable="false" />
+    <Property Name="Guest_IDFK" Type="int" Nullable="false" />
+    <Property Name="Charges_IDFK" Type="int" Nullable="false" />
+    <Property Name="Booking_From" Type="smalldatetime" Nullable="false" />
+    <Property Name="Booking_To" Type="smalldatetime" Nullable="false" />
+    <Property Name="Checked_In" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Charges">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Bar_Charge" Type="int" Nullable="false" />
+    <Property Name="Internet_Charge" Type="int" Nullable="false" />
+    <Property Name="Phone_Charge" Type="int" Nullable="false" />
+    <Property Name="Room_Charge" Type="int" Nullable="false" />
+    <Property Name="Additional_Charges" Type="int" Nullable="false" />
+    <Property Name="Additional_Charges_Info" Type="text" />
+    <Property Name="Total" Type="int" />
+  </EntityType>
+  <EntityType Name="Guest_Info">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="text" Nullable="false" />
+    <Property Name="Address" Type="text" Nullable="false" />
+    <Property Name="Mobile" Type="text" Nullable="false" />
+    <Property Name="Home Phone" Type="text" />
+  </EntityType>
+  <EntityType Name="Room_Prices">
+    <Key>
+      <PropertyRef Name="Key" />
+    </Key>
+    <Property Name="Key" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Single_Price" Type="int" Nullable="false" />
+    <Property Name="Double_Price" Type="int" Nullable="false" />
+    <Property Name="Extra_Single_Price" Type="int" Nullable="false" />
+    <Property Name="Extra_Double_Price" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Rooms">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Room_Name" Type="text" Nullable="false" />
+    <Property Name="Single_Beds" Type="int" Nullable="false" />
+    <Property Name="Double_Beds" Type="int" Nullable="false" />
+    <Property Name="Extra Info" Type="text" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'HotelDatabase.dbo.Complete Booking' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Complete Booking">
+    <Key>
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="Guest ID" />
+      <PropertyRef Name="Room Name" />
+      <PropertyRef Name="From" />
+      <PropertyRef Name="To" />
+      <PropertyRef Name="Checked In ?" />
+      <PropertyRef Name="Receipt ID" />
+    </Key>
+    <Property Name="Name" Type="text" Nullable="false" />
+    <Property Name="Guest ID" Type="int" Nullable="false" />
+    <Property Name="Room Name" Type="text" Nullable="false" />
+    <Property Name="From" Type="smalldatetime" Nullable="false" />
+    <Property Name="To" Type="smalldatetime" Nullable="false" />
+    <Property Name="Checked In ?" Type="bit" Nullable="false" />
+    <Property Name="Receipt ID" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="BK_Charges TO Charges_ID">
+    <End Role="Charges" Type="Self.Charges" Multiplicity="1" />
+    <End Role="Bookings" Type="Self.Bookings" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Charges">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Bookings">
+        <PropertyRef Name="Charges_IDFK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="BK_Guest_ID to Guest_ID">
+    <End Role="Guest_Info" Type="Self.Guest_Info" Multiplicity="1" />
+    <End Role="Bookings" Type="Self.Bookings" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Guest_Info">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Bookings">
+        <PropertyRef Name="Guest_IDFK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="BK_ROOM TO ROOM_ID">
+    <End Role="Rooms" Type="Self.Rooms" Multiplicity="1" />
+    <End Role="Bookings" Type="Self.Bookings" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rooms">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Bookings">
+        <PropertyRef Name="Room_IDFK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="HotelDatabaseModelStoreContainer">
+    <EntitySet Name="Bookings" EntityType="Self.Bookings" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Charges" EntityType="Self.Charges" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Guest_Info" EntityType="Self.Guest_Info" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Room_Prices" EntityType="Self.Room_Prices" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Rooms" EntityType="Self.Rooms" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Complete Booking" EntityType="Self.Complete Booking" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Complete Booking].[Name] AS [Name], 
+    [Complete Booking].[Guest ID] AS [Guest ID], 
+    [Complete Booking].[Room Name] AS [Room Name], 
+    [Complete Booking].[From] AS [From], 
+    [Complete Booking].[To] AS [To], 
+    [Complete Booking].[Checked In ?] AS [Checked In ?], 
+    [Complete Booking].[Receipt ID] AS [Receipt ID]
+    FROM [dbo].[Complete Booking] AS [Complete Booking]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="BK_Charges TO Charges_ID" Association="Self.BK_Charges TO Charges_ID">
+      <End Role="Charges" EntitySet="Charges" />
+      <End Role="Bookings" EntitySet="Bookings" />
+    </AssociationSet>
+    <AssociationSet Name="BK_Guest_ID to Guest_ID" Association="Self.BK_Guest_ID to Guest_ID">
+      <End Role="Guest_Info" EntitySet="Guest_Info" />
+      <End Role="Bookings" EntitySet="Bookings" />
+    </AssociationSet>
+    <AssociationSet Name="BK_ROOM TO ROOM_ID" Association="Self.BK_ROOM TO ROOM_ID">
+      <End Role="Rooms" EntitySet="Rooms" />
+      <End Role="Bookings" EntitySet="Bookings" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
