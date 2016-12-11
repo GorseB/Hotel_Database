@@ -40,6 +40,15 @@
           <Property Name="Mobile" Type="text" Nullable="false" />
           <Property Name="Home Phone" Type="text" />
         </EntityType>
+        <EntityType Name="Logins">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="user" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="password" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="access" Type="int" Nullable="false" />
+        </EntityType>
         <EntityType Name="Room_Prices">
           <Key>
             <PropertyRef Name="Key" />
@@ -120,6 +129,7 @@ warning 6002: The table/view 'HotelDatabase.dbo.Complete Booking' does not have 
           <EntitySet Name="Bookings" EntityType="Self.Bookings" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Charges" EntityType="Self.Charges" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Guest_Info" EntityType="Self.Guest_Info" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Logins" EntityType="Self.Logins" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Room_Prices" EntityType="Self.Room_Prices" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Rooms" EntityType="Self.Rooms" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Complete Booking" EntityType="Self.Complete Booking" store:Type="Views" store:Schema="dbo">
@@ -284,7 +294,17 @@ warning 6002: The table/view 'HotelDatabase.dbo.Complete Booking' does not have 
             <End Role="Rooms" EntitySet="Rooms" />
             <End Role="Bookings" EntitySet="Bookings" />
           </AssociationSet>
+          <EntitySet Name="Logins" EntityType="HotelDatabaseModel.Login" />
         </EntityContainer>
+        <EntityType Name="Login">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="user" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="password" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="access" Type="Int32" Nullable="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -361,6 +381,16 @@ warning 6002: The table/view 'HotelDatabase.dbo.Complete Booking' does not have 
                 <ScalarProperty Name="To" ColumnName="To" />
                 <ScalarProperty Name="Checked_In__" ColumnName="Checked In ?" />
                 <ScalarProperty Name="Receipt_ID" ColumnName="Receipt ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Logins">
+            <EntityTypeMapping TypeName="HotelDatabaseModel.Login">
+              <MappingFragment StoreEntitySet="Logins">
+                <ScalarProperty Name="access" ColumnName="access" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="user" ColumnName="user" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

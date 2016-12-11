@@ -134,5 +134,15 @@
       <End Role="Rooms" EntitySet="Rooms" />
       <End Role="Bookings" EntitySet="Bookings" />
     </AssociationSet>
+    <EntitySet Name="Logins" EntityType="HotelDatabaseModel.Login" />
   </EntityContainer>
+  <EntityType Name="Login">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="user" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="password" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="access" Type="Int32" Nullable="false" />
+  </EntityType>
 </Schema>

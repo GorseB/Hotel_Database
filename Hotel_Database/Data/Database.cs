@@ -5,6 +5,7 @@ namespace Hotel_Database.Data
 {
     internal class Database
     {
+        public static int UserAccess { get; set; }
         public static int UserID { get; set; }
         public static DateTime DateStart { get; set; }
         public static DateTime DateEnd { get; set; }
@@ -14,6 +15,30 @@ namespace Hotel_Database.Data
         // Global Variables Used When adding and updating bookings.
         public Database()
         {
+        }
+
+        public static bool CheckUser(string User, string Password)
+        {
+            using (var context = new HotelDatabaseEntities())
+            {
+                var UserInfo = (from c in context.Logins where c.user == User select c).SingleOrDefault();
+                try
+                {
+                    if (UserInfo.password == Password)
+                    {
+                        UserAccess = UserInfo.access;
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+                catch (Exception)
+                {
+                    return false;
+                }
+            }
         }
 
         public static void CreateBooking()

@@ -14,6 +14,7 @@
         <AssociationConnector Association="HotelDatabaseModel.BK_Charges_TO_Charges_ID" ManuallyRouted="false" />
         <AssociationConnector Association="HotelDatabaseModel.BK_Guest_ID_to_Guest_ID" ManuallyRouted="false" />
         <AssociationConnector Association="HotelDatabaseModel.BK_ROOM_TO_ROOM_ID" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="HotelDatabaseModel.Login" Width="1.5" PointX="5.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -31,5 +31,6 @@ namespace Hotel_Database
         public virtual DbSet<Room> Rooms { get; set; }
         public virtual DbSet<Room_Prices> Room_Prices { get; set; }
         public virtual DbSet<Complete_Booking> Complete_Bookings { get; set; }
+        public virtual DbSet<Login> Logins { get; set; }
     }
 }

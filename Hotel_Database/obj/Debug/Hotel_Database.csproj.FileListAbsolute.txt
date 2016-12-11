@@ -29,3 +29,4 @@ C:\Users\Josiah\documents\visual studio 2015\Projects\Hotel_Database\Hotel_Datab
 C:\Users\Josiah\documents\visual studio 2015\Projects\Hotel_Database\Hotel_Database\obj\Debug\Hotel_Database.Presentation.Update_Charges.resources
 C:\Users\Josiah\documents\visual studio 2015\Projects\Hotel_Database\Hotel_Database\obj\Debug\Hotel_Database.Presentation.Update_Booking_Select_Booking.resources
 C:\Users\Josiah\documents\visual studio 2015\Projects\Hotel_Database\Hotel_Database\obj\Debug\Hotel_Database.Presentation.Update_Booking.resources
+C:\Users\Josiah\documents\visual studio 2015\Projects\Hotel_Database\Hotel_Database\obj\Debug\Hotel_Database.Presentation.Login.resources

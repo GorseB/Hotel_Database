@@ -13,7 +13,7 @@ namespace Hotel_Database
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Hotel_Management());
+            Application.Run(new Hotel_Database.Presentation.Login());
         }
     }
 }
