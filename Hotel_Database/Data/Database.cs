@@ -5,7 +5,9 @@ namespace Hotel_Database.Data
 {
     internal class Database
     {
-        public static int UserAccess { get; set; }
+        public static string AccountName { get; set; }
+        public static int AccountAccess { get; set; }
+        public static int AccountID { get; set; }
         public static int UserID { get; set; }
         public static DateTime DateStart { get; set; }
         public static DateTime DateEnd { get; set; }
@@ -17,6 +19,17 @@ namespace Hotel_Database.Data
         {
         }
 
+        public static void ChangePasword(string Password)
+        {
+            using (var context = new HotelDatabaseEntities())
+            {
+                var NewLogin = (from c in context.Logins where c.ID == AccountID select c).FirstOrDefault();
+                NewLogin.password = Password;
+                context.SaveChanges();
+                ClearValues();
+            }
+        }
+
         public static bool CheckUser(string User, string Password)
         {
             using (var context = new HotelDatabaseEntities())
@@ -26,7 +39,9 @@ namespace Hotel_Database.Data
                 {
                     if (UserInfo.password == Password)
                     {
-                        UserAccess = UserInfo.access;
+                        AccountAccess = UserInfo.access;
+                        AccountID = UserInfo.ID;
+                        AccountName = UserInfo.user;
                         return true;
                     }
                     else
@@ -74,6 +89,20 @@ namespace Hotel_Database.Data
                 New_Guest.Mobile = Mobile;
                 New_Guest.Home_Phone = Home_Phone;
                 context.Guest_Info.Add(New_Guest);
+                context.SaveChanges();
+                ClearValues();
+            }
+        }
+
+        public static void CreateAccount(string Name, string Password, int Access)
+        {
+            using (var context = new HotelDatabaseEntities())
+            {
+                var New_Account = new Login();
+                New_Account.user = Name;
+                New_Account.password = Password;
+                New_Account.access = Access;
+                context.Logins.Add(New_Account);
                 context.SaveChanges();
                 ClearValues();
             }
@@ -174,6 +203,30 @@ namespace Hotel_Database.Data
             }
         }
 
+        public static void DeleteAccount(int ID)
+        {
+            using (var context = new HotelDatabaseEntities())
+            {
+                var Account = (from c in context.Logins where c.ID == ID select c).SingleOrDefault();
+                {
+                    context.Logins.Remove(Account);
+                    context.SaveChanges();
+                    ClearValues();
+                }
+            }
+        }
+
+        public static void UpdateAccess(int ID, int Access)
+        {
+            using (var context = new HotelDatabaseEntities())
+            {
+                var NewLogin = (from c in context.Logins where c.ID == ID select c).FirstOrDefault();
+                NewLogin.access = Access;
+                context.SaveChanges();
+                ClearValues();
+            }
+        }
+
         public static void UpdateGuest(string Name, string Address, string Mobile, string Home_Phone)
         {
             using (var context = new HotelDatabaseEntities())
@@ -253,6 +306,6 @@ namespace Hotel_Database.Data
             DateEnd = DateTime.Now;
             RoomID = 0;
             Room_Charge = 0;
-        }
+    }
     }
 }

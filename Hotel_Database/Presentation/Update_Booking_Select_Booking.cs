@@ -27,7 +27,7 @@ namespace Hotel_Database.Presentation
                                    c.Booking_To,
                                    c.Checked_In
                                };
-                dgv_ChooseGuest.DataSource = Bookings.ToList();
+                dgv_SelectAccount.DataSource = Bookings.ToList();
             }
         }
 
@@ -35,7 +35,7 @@ namespace Hotel_Database.Presentation
         {
             if (e.RowIndex >= 0)
             {
-                DataGridViewRow row = dgv_ChooseGuest.Rows[e.RowIndex];
+                DataGridViewRow row = dgv_SelectAccount.Rows[e.RowIndex];
                 int ID = 0;
                 ID = Convert.ToInt32(row.Cells["ID"].Value.ToString());
                 Data.Database.UserID = ID;
@@ -44,6 +44,10 @@ namespace Hotel_Database.Presentation
                 DR = Presentation.ShowDialog();
                 DGV();
             }
+        }
+
+        private void dgv_SelectAccount_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
         }
     }
 }

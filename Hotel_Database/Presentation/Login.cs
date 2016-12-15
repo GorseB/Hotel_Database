@@ -14,7 +14,7 @@ namespace Hotel_Database.Presentation
             clock();
         }
 
-        private void clock()
+        private void clock() // simple clock function
         {
             var timer = new System.Timers.Timer();
             timer.Elapsed += function;
@@ -23,7 +23,7 @@ namespace Hotel_Database.Presentation
             timer.Start();
         }
 
-        private void function(object sender, ElapsedEventArgs e)
+        private void function(object sender, ElapsedEventArgs e) // more clock
         {
             try
             {
@@ -35,7 +35,7 @@ namespace Hotel_Database.Presentation
             }
         }
 
-        private void SetText(string text)
+        private void SetText(string text) // more clock
         {
             if (this.lbl_DateandTime.InvokeRequired)
             {
@@ -48,7 +48,7 @@ namespace Hotel_Database.Presentation
             }
         }
 
-        private void btn_Login_Click(object sender, EventArgs e)
+        private void btn_Login_Click(object sender, EventArgs e) //check to see if the right input was entered, if so, log in.
         {
             if (String.IsNullOrWhiteSpace(txt_User.Text) || String.IsNullOrWhiteSpace(txt_Password.Text))
             {
@@ -56,16 +56,14 @@ namespace Hotel_Database.Presentation
             }
             else if (Data.Database.CheckUser(txt_User.Text, txt_Password.Text))
             {
-                var form = new Presentation.Main();
-                form.ShowDialog();
+                Form_Menu Menu = new Form_Menu();
+                Menu.Show();
+                this.Hide();
             }
-            Clear();
-        }
-
-        private void Clear()
-        {
-            txt_Password.Text = "";
-            txt_User.Text = "";
+            else
+            {
+                MessageBox.Show("Incorrect Username or Password");
+            }
         }
     }
 }

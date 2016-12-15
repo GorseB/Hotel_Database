@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Update_Booking_Select_Booking));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Remove_Account));
             this.lbl_Title = new System.Windows.Forms.Label();
             this.btn_Cancel = new System.Windows.Forms.Button();
-            this.dgv_ChooseGuest = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_ChooseGuest)).BeginInit();
+            this.dgv_SelectAccount = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_SelectAccount)).BeginInit();
             this.SuspendLayout();
             // 
             // lbl_Title
@@ -43,7 +43,7 @@
             this.lbl_Title.Name = "lbl_Title";
             this.lbl_Title.Size = new System.Drawing.Size(560, 51);
             this.lbl_Title.TabIndex = 0;
-            this.lbl_Title.Text = "Select_Booking";
+            this.lbl_Title.Text = "Select Booking";
             this.lbl_Title.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btn_Cancel
@@ -56,36 +56,36 @@
             this.btn_Cancel.Text = "Cancel";
             this.btn_Cancel.UseVisualStyleBackColor = true;
             // 
-            // dgv_ChooseGuest
+            // dgv_SelectAccount
             // 
-            this.dgv_ChooseGuest.AllowUserToAddRows = false;
-            this.dgv_ChooseGuest.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_ChooseGuest.Location = new System.Drawing.Point(12, 63);
-            this.dgv_ChooseGuest.Name = "dgv_ChooseGuest";
-            this.dgv_ChooseGuest.ReadOnly = true;
-            this.dgv_ChooseGuest.Size = new System.Drawing.Size(560, 168);
-            this.dgv_ChooseGuest.TabIndex = 13;
-            this.dgv_ChooseGuest.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_ChooseGuest_CellClick);
+            this.dgv_SelectAccount.AllowUserToAddRows = false;
+            this.dgv_SelectAccount.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_SelectAccount.Location = new System.Drawing.Point(12, 63);
+            this.dgv_SelectAccount.Name = "dgv_SelectAccount";
+            this.dgv_SelectAccount.ReadOnly = true;
+            this.dgv_SelectAccount.Size = new System.Drawing.Size(560, 168);
+            this.dgv_SelectAccount.TabIndex = 13;
+            this.dgv_SelectAccount.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_ChooseGuest_CellClick);
             // 
-            // Update_Booking_Select_Booking
+            // Remove_Account
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Hotel_Database.Properties.Resources.Sunset;
             this.ClientSize = new System.Drawing.Size(584, 288);
             this.ControlBox = false;
-            this.Controls.Add(this.dgv_ChooseGuest);
+            this.Controls.Add(this.dgv_SelectAccount);
             this.Controls.Add(this.btn_Cancel);
             this.Controls.Add(this.lbl_Title);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "Update_Booking_Select_Booking";
+            this.Name = "Remove_Account";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.Text = "Select Booking";
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_ChooseGuest)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_SelectAccount)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -94,6 +94,6 @@
 
         private System.Windows.Forms.Label lbl_Title;
         private System.Windows.Forms.Button btn_Cancel;
-        private System.Windows.Forms.DataGridView dgv_ChooseGuest;
+        private System.Windows.Forms.DataGridView dgv_SelectAccount;
     }
 }
