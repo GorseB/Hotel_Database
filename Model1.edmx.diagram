@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f25abc88ef794d999237ec76c2bb0d7f" Name="Diagram1">
+        <EntityTypeShape EntityType="HotelDatabaseModel.Booking" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="HotelDatabaseModel.Charge" Width="1.5" PointX="0.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="HotelDatabaseModel.Guest_Info" Width="1.5" PointX="0.75" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="HotelDatabaseModel.Room" Width="1.5" PointX="0.75" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="HotelDatabaseModel.Room_Prices" Width="1.5" PointX="2.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HotelDatabaseModel.Complete_Booking" Width="1.5" PointX="4.75" PointY="4.75" IsExpanded="true" />
+        <AssociationConnector Association="HotelDatabaseModel.BK_Charges_TO_Charges_ID" ManuallyRouted="false" />
+        <AssociationConnector Association="HotelDatabaseModel.BK_Guest_ID_to_Guest_ID" ManuallyRouted="false" />
+        <AssociationConnector Association="HotelDatabaseModel.BK_ROOM_TO_ROOM_ID" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="HotelDatabaseModel.Login" Width="1.5" PointX="5.375" PointY="0.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
